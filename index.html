@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Juan Maya — Full Stack Developer</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#080808;--bg2:#0f0f0f;--bg3:#161616;--bg4:#1c1c1c;
+  --accent:#00ff88;--accent2:#0055ff;--accent3:#ff4455;
+  --text:#f2f2f2;--text2:#777;--text3:#444;
+  --border:#1e1e1e;--border2:#2a2a2a;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;line-height:1.6}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+
+/* ── CURSOR ── */
+.cursor{width:10px;height:10px;background:var(--accent);border-radius:50%;position:fixed;pointer-events:none;z-index:9999;transition:transform .1s;mix-blend-mode:difference}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:500;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:24px 64px;
+  border-bottom:1px solid var(--border);
+  background:rgba(8,8,8,.92);
+  backdrop-filter:blur(20px);
+}
+.logo{font-family:'Syne',sans-serif;font-weight:800;font-size:20px;letter-spacing:-1px}
+.logo span{color:var(--accent)}
+.nav-links{display:flex;gap:40px;list-style:none}
+.nav-links a{font-size:13px;color:var(--text2);letter-spacing:.5px;transition:color .2s}
+.nav-links a:hover{color:var(--text)}
+.nav-badge{
+  display:flex;align-items:center;gap:8px;
+  background:rgba(0,255,136,.08);border:1px solid rgba(0,255,136,.2);
+  border-radius:100px;padding:8px 20px;font-size:12px;color:var(--accent);
+}
+.nav-badge-dot{width:6px;height:6px;border-radius:50%;background:var(--accent);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+
+/* ── HERO ── */
+.hero{
+  min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;
+  padding:0 64px 80px;border-bottom:1px solid var(--border);
+  position:relative;overflow:hidden;
+}
+.hero-bg-num{
+  position:absolute;right:-20px;top:50%;transform:translateY(-50%);
+  font-family:'Syne',sans-serif;font-size:clamp(200px,35vw,480px);
+  font-weight:800;color:var(--border2);line-height:1;pointer-events:none;
+  user-select:none;z-index:0;
+}
+.hero-content{position:relative;z-index:1}
+.hero-eyebrow{
+  display:flex;align-items:center;gap:16px;margin-bottom:40px;
+}
+.hero-line{width:40px;height:1px;background:var(--text2)}
+.hero-eyebrow-text{font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--text2)}
+h1{
+  font-family:'Syne',sans-serif;font-weight:800;
+  font-size:clamp(60px,10vw,130px);
+  line-height:.9;letter-spacing:-4px;
+  margin-bottom:48px;
+}
+h1 .line1{display:block}
+h1 .line2{display:block;color:transparent;-webkit-text-stroke:1px var(--text3)}
+h1 .line3{display:block;color:var(--accent)}
+.hero-bottom{
+  display:flex;justify-content:space-between;align-items:flex-end;
+  flex-wrap:wrap;gap:40px;
+}
+.hero-desc{font-size:16px;color:var(--text2);max-width:420px;line-height:1.8}
+.hero-cta{display:flex;flex-direction:column;align-items:flex-end;gap:24px}
+.hero-scroll{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--text3)}
+.btn-main{
+  display:inline-flex;align-items:center;gap:12px;
+  background:var(--accent);color:#000;
+  padding:16px 36px;border-radius:100px;
+  font-size:14px;font-weight:600;
+  transition:transform .2s,opacity .2s;
+}
+.btn-main:hover{transform:scale(1.03)}
+.btn-main .arrow{font-size:18px}
+
+/* ── SECTIONS COMMON ── */
+.section{padding:120px 64px;border-bottom:1px solid var(--border)}
+.section-header{margin-bottom:80px}
+.section-num{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--text3);margin-bottom:16px}
+h2{font-family:'Syne',sans-serif;font-size:clamp(36px,5vw,64px);font-weight:800;letter-spacing:-2px;line-height:1}
+h2 em{font-style:normal;color:var(--accent)}
+
+/* ── ABOUT ── */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px}
+.about-text{font-size:17px;color:var(--text2);line-height:1.9;margin-bottom:20px}
+.about-highlight{color:var(--text);font-weight:500}
+.about-skills{margin-top:48px}
+.skills-title{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--text3);margin-bottom:20px}
+.skills-list{display:flex;flex-wrap:wrap;gap:8px}
+.skill-tag{
+  background:var(--bg3);border:1px solid var(--border2);
+  border-radius:6px;padding:8px 16px;font-size:12px;color:var(--text2);
+  transition:border-color .2s,color .2s;cursor:default;
+}
+.skill-tag:hover{border-color:var(--accent);color:var(--accent)}
+.about-info{display:flex;flex-direction:column;gap:1px}
+.info-row{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:20px 0;border-bottom:1px solid var(--border);
+}
+.info-row:first-child{border-top:1px solid var(--border)}
+.info-label{font-size:12px;color:var(--text3);letter-spacing:.5px}
+.info-val{font-size:14px;font-weight:500}
+.info-val.green{color:var(--accent)}
+.about-quote{
+  margin-top:48px;background:var(--bg3);border-left:2px solid var(--accent);
+  padding:28px 32px;border-radius:0 12px 12px 0;
+}
+.quote-text{font-size:16px;color:var(--text2);line-height:1.8;font-style:italic}
+.quote-author{font-size:12px;color:var(--text3);margin-top:12px}
+
+/* ── PROJECTS ── */
+.projects-intro{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:20px}
+.view-all{
+  font-size:13px;color:var(--text2);border:1px solid var(--border2);
+  padding:10px 24px;border-radius:100px;transition:border-color .2s,color .2s;
+}
+.view-all:hover{border-color:var(--text2);color:var(--text)}
+.projects-grid{display:flex;flex-direction:column;gap:1px;background:var(--border)}
+.project-item{
+  background:var(--bg);padding:40px 48px;
+  display:grid;grid-template-columns:60px 1fr auto;
+  align-items:center;gap:40px;cursor:pointer;
+  transition:background .2s;
+}
+.project-item:hover{background:var(--bg3)}
+.project-num{font-family:'Syne',sans-serif;font-size:11px;color:var(--text3);letter-spacing:2px}
+.project-main{}
+.project-tags-row{display:flex;gap:8px;margin-bottom:10px;flex-wrap:wrap}
+.ptag{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--text3)}
+.ptag-sep{color:var(--border2)}
+.project-title{font-family:'Syne',sans-serif;font-size:clamp(22px,3vw,32px);font-weight:800;letter-spacing:-1px}
+.project-sub{font-size:14px;color:var(--text2);margin-top:8px;max-width:500px}
+.project-arrow{
+  width:48px;height:48px;border:1px solid var(--border2);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:18px;color:var(--text2);transition:border-color .2s,color .2s,transform .2s;
+  flex-shrink:0;
+}
+.project-item:hover .project-arrow{border-color:var(--accent);color:var(--accent);transform:rotate(45deg)}
+.project-status{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:10px;letter-spacing:2px;text-transform:uppercase;
+  margin-top:12px;
+}
+.status-dot{width:5px;height:5px;border-radius:50%}
+.status-dot.done{background:#00ff88}
+.status-dot.build{background:#f7a24f}
+
+/* ── FEATURED PROJECT ── */
+.featured{padding:80px 64px;border-bottom:1px solid var(--border);background:var(--bg2)}
+.featured-inner{
+  background:var(--bg3);border:1px solid var(--border2);
+  border-radius:24px;overflow:hidden;
+}
+.featured-preview{
+  background:linear-gradient(145deg,#0d1117,#161b27);
+  padding:48px;display:flex;align-items:center;justify-content:center;
+  min-height:380px;border-bottom:1px solid var(--border);
+}
+.mock-app{
+  background:#161b27;border:1px solid #2a3348;border-radius:16px;
+  width:100%;max-width:680px;overflow:hidden;
+}
+.mock-topbar{
+  background:#0d1117;padding:14px 20px;display:flex;align-items:center;
+  gap:8px;border-bottom:1px solid #1e293b;
+}
+.mock-dot{width:10px;height:10px;border-radius:50%}
+.mock-title-bar{flex:1;background:#1e2535;height:22px;border-radius:4px;margin:0 16px}
+.mock-body{padding:24px;display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:12px}
+.mock-kpi{background:#0d1117;border-radius:10px;padding:16px;border-top:2px solid}
+.mock-kpi-v{font-size:22px;font-weight:700;font-family:monospace}
+.mock-kpi-l{font-size:9px;color:#64748b;margin-top:4px;text-transform:uppercase;letter-spacing:1px}
+.mock-chart-row{padding:0 24px 24px;display:grid;grid-template-columns:2fr 1fr;gap:12px}
+.mock-chart{background:#0d1117;border-radius:10px;padding:16px;height:100px;display:flex;align-items:flex-end;gap:4px}
+.mock-bar{background:#00d4aa;border-radius:3px 3px 0 0;flex:1;opacity:.8}
+.mock-pie{background:#0d1117;border-radius:10px;padding:16px;height:100px;display:flex;align-items:center;justify-content:center}
+.pie-circle{width:64px;height:64px;border-radius:50%;background:conic-gradient(#00d4aa 35%,#4f8ef7 35% 60%,#f7a24f 60% 80%,#f05566 80%)}
+.featured-info{padding:40px 48px;display:grid;grid-template-columns:1fr auto;gap:40px;align-items:center}
+.feat-tags{display:flex;gap:8px;margin-bottom:12px}
+.feat-tag{background:var(--bg);border:1px solid var(--border2);border-radius:6px;padding:5px 12px;font-size:11px;color:var(--text2)}
+.feat-title{font-family:'Syne',sans-serif;font-size:28px;font-weight:800;margin-bottom:8px}
+.feat-desc{font-size:14px;color:var(--text2);line-height:1.7;max-width:480px}
+.feat-links{display:flex;gap:12px;flex-shrink:0}
+.feat-link{
+  padding:12px 24px;border-radius:100px;font-size:13px;
+  font-weight:500;transition:opacity .2s;
+}
+.feat-link.primary{background:var(--accent);color:#000}
+.feat-link.secondary{border:1px solid var(--border2);color:var(--text2)}
+.feat-link:hover{opacity:.8}
+
+/* ── EXPERIENCE ── */
+.exp-list{display:flex;flex-direction:column;gap:1px;background:var(--border)}
+.exp-item{background:var(--bg);padding:40px 48px;display:grid;grid-template-columns:200px 1fr;gap:60px}
+.exp-date{font-size:12px;color:var(--text3);padding-top:4px;letter-spacing:.5px}
+.exp-role{font-family:'Syne',sans-serif;font-size:20px;font-weight:700;margin-bottom:4px}
+.exp-company{font-size:14px;color:var(--accent);margin-bottom:16px}
+.exp-desc{font-size:14px;color:var(--text2);line-height:1.8}
+.exp-techs{display:flex;gap:6px;flex-wrap:wrap;margin-top:16px}
+.exp-tech{background:var(--bg3);border:1px solid var(--border2);border-radius:4px;padding:4px 10px;font-size:11px;color:var(--text3)}
+
+/* ── SERVICES ── */
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border)}
+.service-card{background:var(--bg);padding:40px;transition:background .2s}
+.service-card:hover{background:var(--bg3)}
+.service-icon{font-size:28px;margin-bottom:24px}
+.service-title{font-family:'Syne',sans-serif;font-size:20px;font-weight:800;margin-bottom:12px}
+.service-desc{font-size:14px;color:var(--text2);line-height:1.8}
+.service-price{margin-top:24px;font-size:12px;color:var(--text3)}
+.service-price strong{color:var(--accent);font-size:16px}
+
+/* ── CONTACT ── */
+.contact-inner{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.contact-left h2{margin-bottom:20px}
+.contact-sub{font-size:17px;color:var(--text2);line-height:1.8;margin-bottom:40px}
+.contact-options{display:flex;flex-direction:column;gap:1px;background:var(--border)}
+.contact-option{
+  background:var(--bg);padding:24px 32px;
+  display:flex;justify-content:space-between;align-items:center;
+  transition:background .2s;
+}
+.contact-option:hover{background:var(--bg3)}
+.co-label{font-size:12px;color:var(--text3);margin-bottom:4px;letter-spacing:.5px}
+.co-val{font-size:15px;font-weight:500}
+.co-arrow{color:var(--text3);font-size:18px}
+.contact-right{
+  background:var(--bg3);border:1px solid var(--border2);
+  border-radius:20px;padding:40px;
+}
+.contact-form-title{font-family:'Syne',sans-serif;font-size:22px;font-weight:800;margin-bottom:28px}
+.form-group{margin-bottom:16px}
+.form-group label{display:block;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--text3);margin-bottom:8px}
+.form-group input,.form-group textarea,.form-group select{
+  width:100%;background:var(--bg);border:1px solid var(--border2);
+  border-radius:8px;padding:12px 16px;font-size:14px;color:var(--text);
+  font-family:'Inter',sans-serif;outline:none;transition:border-color .2s;
+}
+.form-group input:focus,.form-group textarea:focus{border-color:var(--accent)}
+.form-group textarea{height:100px;resize:none}
+.form-submit{
+  width:100%;background:var(--accent);color:#000;
+  border:none;border-radius:100px;padding:14px;
+  font-size:14px;font-weight:600;cursor:pointer;
+  font-family:'Inter',sans-serif;transition:opacity .2s;margin-top:8px;
+}
+.form-submit:hover{opacity:.85}
+
+/* ── FOOTER ── */
+footer{
+  padding:40px 64px;display:flex;justify-content:space-between;align-items:center;
+  border-top:1px solid var(--border);flex-wrap:wrap;gap:20px;
+}
+.footer-left{font-size:13px;color:var(--text3)}
+.footer-logo{font-family:'Syne',sans-serif;font-size:18px;font-weight:800}
+.footer-logo span{color:var(--accent)}
+.footer-links{display:flex;gap:24px}
+.footer-links a{font-size:12px;color:var(--text3);transition:color .2s}
+.footer-links a:hover{color:var(--text)}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  nav{padding:20px 24px}
+  .nav-links{display:none}
+  .hero,.section,.featured{padding:80px 24px}
+  h1{letter-spacing:-2px}
+  .hero-bg-num{display:none}
+  .about-grid,.contact-inner{grid-template-columns:1fr}
+  .services-grid{grid-template-columns:1fr}
+  .project-item{grid-template-columns:1fr;gap:16px}
+  .project-num{display:none}
+  .exp-item{grid-template-columns:1fr;gap:8px}
+  .feat-links{flex-direction:column}
+  footer{flex-direction:column;text-align:center;padding:32px 24px}
+  .featured-info{grid-template-columns:1fr;gap:24px}
+  .featured-preview{padding:24px}
+  .mock-body{grid-template-columns:repeat(2,1fr)}
+}
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">jm<span>.</span></div>
+  <ul class="nav-links">
+    <li><a href="#about">Sobre mí</a></li>
+    <li><a href="#projects">Proyectos</a></li>
+    <li><a href="#services">Servicios</a></li>
+    <li><a href="#contact">Contacto</a></li>
+  </ul>
+  <div class="nav-badge">
+    <span class="nav-badge-dot"></span>
+    Disponible para proyectos
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg-num">JM</div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">
+      <div class="hero-line"></div>
+      <span class="hero-eyebrow-text">Full Stack Developer · Colombia · 2025</span>
+    </div>
+    <h1>
+      <span class="line1">Juan</span>
+      <span class="line2">José</span>
+      <span class="line3">Maya.</span>
+    </h1>
+    <div class="hero-bottom">
+      <p class="hero-desc">Desarrollo sistemas web completos que resuelven problemas reales. Desde sistemas de inventario hasta plataformas empresariales — código limpio, entrega a tiempo.</p>
+      <div class="hero-cta">
+        <span class="hero-scroll">Scroll para explorar ↓</span>
+        <a href="#projects" class="btn-main">Ver proyectos <span class="arrow">→</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section" id="about">
+  <div class="section-header">
+    <div class="section-num">01 — Sobre mí</div>
+    <h2>Código que <em>funciona</em><br>de verdad.</h2>
+  </div>
+  <div class="about-grid">
+    <div>
+      <p class="about-text">Soy <span class="about-highlight">Juan José Maya</span>, desarrollador Full Stack con 2.5 años construyendo soluciones web para empresas colombianas y latinoamericanas.</p>
+      <p class="about-text">Me especializo en <span class="about-highlight">sistemas de gestión empresarial</span> — inventarios, ventas, contabilidad, agendamiento y CRM. Entrego proyectos completos y funcionales, no prototipos.</p>
+      <p class="about-text">Trabajo con <span class="about-highlight">Laravel, React, Python y MySQL</span> como stack principal, complementado con Angular, Rust, C++ y Java según las necesidades del proyecto.</p>
+      <div class="about-skills">
+        <div class="skills-title">Stack tecnológico</div>
+        <div class="skills-list">
+          <span class="skill-tag">Laravel</span>
+          <span class="skill-tag">React</span>
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">Angular</span>
+          <span class="skill-tag">MySQL</span>
+          <span class="skill-tag">PHP</span>
+          <span class="skill-tag">JavaScript</span>
+          <span class="skill-tag">Java</span>
+          <span class="skill-tag">Rust</span>
+          <span class="skill-tag">C++</span>
+          <span class="skill-tag">REST APIs</span>
+          <span class="skill-tag">PostgreSQL</span>
+          <span class="skill-tag">Git</span>
+          <span class="skill-tag">HTML/CSS</span>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="about-info">
+        <div class="info-row">
+          <span class="info-label">Ubicación</span>
+          <span class="info-val">San Pedro, Antioquia 🇨🇴</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">Experiencia</span>
+          <span class="info-val">2.5 años</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">Especialidad</span>
+          <span class="info-val">Sistemas ERP & Web Apps</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">Disponibilidad</span>
+          <span class="info-val green">● Disponible ahora</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">Idiomas</span>
+          <span class="info-val">Español · English (basic)</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">Modalidad</span>
+          <span class="info-val">Remoto · Freelance</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">Proyectos entregados</span>
+          <span class="info-val green">6 sistemas completos</span>
+        </div>
+      </div>
+      <div class="about-quote">
+        <p class="quote-text">"Me apasiona crear software que las personas realmente usen todos los días y que les ahorre tiempo y dinero."</p>
+        <div class="quote-author">— Juan José Maya</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED PROJECT -->
+<div class="featured">
+  <div style="margin-bottom:32px">
+    <div class="section-num">Proyecto destacado</div>
+    <h2 style="font-family:'Syne',sans-serif;font-size:clamp(28px,4vw,48px);font-weight:800;letter-spacing:-2px">StockPro <em>— Sistema de Inventario</em></h2>
+  </div>
+  <div class="featured-inner">
+    <div class="featured-preview">
+      <div class="mock-app">
+        <div class="mock-topbar">
+          <div class="mock-dot" style="background:#f05566"></div>
+          <div class="mock-dot" style="background:#f7a24f"></div>
+          <div class="mock-dot" style="background:#00d4aa"></div>
+          <div class="mock-title-bar"></div>
+          <div style="width:60px;height:22px;background:#00d4aa;border-radius:4px;opacity:.3"></div>
+        </div>
+        <div class="mock-body">
+          <div class="mock-kpi" style="border-color:#00d4aa">
+            <div class="mock-kpi-v" style="color:#00d4aa">1,248</div>
+            <div class="mock-kpi-l">Productos</div>
+          </div>
+          <div class="mock-kpi" style="border-color:#4f8ef7">
+            <div class="mock-kpi-v" style="color:#4f8ef7">$84k</div>
+            <div class="mock-kpi-l">Inventario</div>
+          </div>
+          <div class="mock-kpi" style="border-color:#f7a24f">
+            <div class="mock-kpi-v" style="color:#f7a24f">$23k</div>
+            <div class="mock-kpi-l">Ventas</div>
+          </div>
+          <div class="mock-kpi" style="border-color:#f05566">
+            <div class="mock-kpi-v" style="color:#f05566">14</div>
+            <div class="mock-kpi-l">Alertas</div>
+          </div>
+        </div>
+        <div class="mock-chart-row">
+          <div class="mock-chart">
+            <div class="mock-bar" style="height:60%"></div>
+            <div class="mock-bar" style="height:85%"></div>
+            <div class="mock-bar" style="height:45%"></div>
+            <div class="mock-bar" style="height:75%"></div>
+            <div class="mock-bar" style="height:55%"></div>
+            <div class="mock-bar" style="height:100%"></div>
+          </div>
+          <div class="mock-pie">
+            <div class="pie-circle"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="featured-info">
+      <div>
+        <div class="feat-tags">
+          <span class="feat-tag">React</span>
+          <span class="feat-tag">Laravel</span>
+          <span class="feat-tag">MySQL</span>
+          <span class="feat-tag">Python</span>
+          <span class="feat-tag">REST API</span>
+        </div>
+        <div class="feat-title">Sistema completo de gestión de inventario y ventas</div>
+        <p class="feat-desc">Dashboard en tiempo real con KPIs, módulo de ventas con cálculo automático, gestión de proveedores, reportes con gráficas y alertas de stock crítico. Desarrollado con arquitectura Full Stack moderna.</p>
+      </div>
+      <div class="feat-links">
+        <a href="https://github.com/Juanmaya25/stockpro-inventory-system" target="_blank" class="feat-link primary">Ver código →</a>
+        <a href="#contact" class="feat-link secondary">Contratar</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PROJECTS LIST -->
+<section class="section" id="projects">
+  <div class="section-header">
+    <div class="projects-intro">
+      <div>
+        <div class="section-num">02 — Proyectos</div>
+        <h2>Lo que he <em>construido</em></h2>
+      </div>
+      <a href="https://github.com/Juanmaya25" target="_blank" class="view-all">Ver GitHub →</a>
+    </div>
+  </div>
+
+  <div class="projects-grid">
+
+    <div class="project-item">
+      <div class="project-num">01</div>
+      <div class="project-main">
+        <div class="project-tags-row">
+          <span class="ptag">Laravel</span><span class="ptag-sep">·</span>
+          <span class="ptag">React</span><span class="ptag-sep">·</span>
+          <span class="ptag">MySQL</span>
+        </div>
+        <div class="project-title">StockPro — Inventario</div>
+        <div class="project-sub">Sistema Full Stack de gestión de inventario con dashboard, ventas, proveedores y analytics en tiempo real.</div>
+        <div class="project-status">
+          <span class="status-dot done"></span>
+          <span style="font-size:10px;color:#777;letter-spacing:2px">COMPLETADO · 2025</span>
+        </div>
+      </div>
+      <a href="https://github.com/Juanmaya25/stockpro-inventory-system" target="_blank" class="project-arrow">→</a>
+    </div>
+
+    <div class="project-item">
+      <div class="project-num">02</div>
+      <div class="project-main">
+        <div class="project-tags-row">
+          <span class="ptag">Laravel</span><span class="ptag-sep">·</span>
+          <span class="ptag">Angular</span><span class="ptag-sep">·</span>
+          <span class="ptag">MySQL</span>
+        </div>
+        <div class="project-title">VetSystem — Clínica Veterinaria</div>
+        <div class="project-sub">Sistema de gestión para clínicas veterinarias: pacientes, citas, historiales médicos, facturación y recordatorios automáticos.</div>
+        <div class="project-status">
+          <span class="status-dot build"></span>
+          <span style="font-size:10px;color:#777;letter-spacing:2px">EN DESARROLLO · 2025</span>
+        </div>
+      </div>
+      <div class="project-arrow">→</div>
+    </div>
+
+    <div class="project-item">
+      <div class="project-num">03</div>
+      <div class="project-main">
+        <div class="project-tags-row">
+          <span class="ptag">Python</span><span class="ptag-sep">·</span>
+          <span class="ptag">React</span><span class="ptag-sep">·</span>
+          <span class="ptag">PostgreSQL</span>
+        </div>
+        <div class="project-title">AgendaPro — Reservas Online</div>
+        <div class="project-sub">Plataforma de agendamiento de citas para consultorios, salones y servicios profesionales. Integración con WhatsApp para recordatorios.</div>
+        <div class="project-status">
+          <span class="status-dot build"></span>
+          <span style="font-size:10px;color:#777;letter-spacing:2px">EN DESARROLLO · 2025</span>
+        </div>
+      </div>
+      <div class="project-arrow">→</div>
+    </div>
+
+    <div class="project-item">
+      <div class="project-num">04</div>
+      <div class="project-main">
+        <div class="project-tags-row">
+          <span class="ptag">PHP</span><span class="ptag-sep">·</span>
+          <span class="ptag">JavaScript</span><span class="ptag-sep">·</span>
+          <span class="ptag">MySQL</span>
+        </div>
+        <div class="project-title">ContaFácil — Contabilidad PYME</div>
+        <div class="project-sub">Sistema contable simplificado para pequeñas empresas. Facturación electrónica, informes financieros, control de gastos e ingresos.</div>
+        <div class="project-status">
+          <span class="status-dot build"></span>
+          <span style="font-size:10px;color:#777;letter-spacing:2px">PRÓXIMAMENTE · 2025</span>
+        </div>
+      </div>
+      <div class="project-arrow">→</div>
+    </div>
+
+    <div class="project-item">
+      <div class="project-num">05</div>
+      <div class="project-main">
+        <div class="project-tags-row">
+          <span class="ptag">Laravel</span><span class="ptag-sep">·</span>
+          <span class="ptag">Vue.js</span><span class="ptag-sep">·</span>
+          <span class="ptag">MySQL</span>
+        </div>
+        <div class="project-title">RentTrack — Arrendamientos</div>
+        <div class="project-sub">Sistema de gestión de propiedades en arriendo. Control de pagos, contratos, inquilinos, mantenimientos y reportes mensuales.</div>
+        <div class="project-status">
+          <span class="status-dot build"></span>
+          <span style="font-size:10px;color:#777;letter-spacing:2px">PRÓXIMAMENTE · 2025</span>
+        </div>
+      </div>
+      <div class="project-arrow">→</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section class="section" id="experience">
+  <div class="section-header">
+    <div class="section-num">03 — Experiencia</div>
+    <h2>Cómo llegué <em>aquí</em></h2>
+  </div>
+  <div class="exp-list">
+    <div class="exp-item">
+      <div class="exp-date">2023 — Presente</div>
+      <div>
+        <div class="exp-role">Desarrollador Full Stack Freelance</div>
+        <div class="exp-company">Independiente · Remoto</div>
+        <div class="exp-desc">Desarrollo de sistemas de gestión de inventario y aplicaciones empresariales para clientes privados en Colombia. Diseño de arquitecturas Full Stack, implementación de bases de datos relacionales y construcción de interfaces modernas. Proyectos de escritorio y web enfocados en automatización de procesos de negocio.</div>
+        <div class="exp-techs">
+          <span class="exp-tech">Laravel</span>
+          <span class="exp-tech">React</span>
+          <span class="exp-tech">Python</span>
+          <span class="exp-tech">MySQL</span>
+          <span class="exp-tech">Angular</span>
+        </div>
+      </div>
+    </div>
+    <div class="exp-item">
+      <div class="exp-date">2021 — 2022</div>
+      <div>
+        <div class="exp-role">Desarrollador Junior</div>
+        <div class="exp-company">Proyectos propios · San Pedro, Antioquia</div>
+        <div class="exp-desc">Inicio en el desarrollo de software construyendo sistemas de escritorio para gestión de almacenes y pequeñas empresas locales. Aprendizaje autodidacta de múltiples lenguajes de programación: C++, Java, Python y PHP. Primeros proyectos con clientes reales.</div>
+        <div class="exp-techs">
+          <span class="exp-tech">C++</span>
+          <span class="exp-tech">Java</span>
+          <span class="exp-tech">Python</span>
+          <span class="exp-tech">PHP</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section" id="services">
+  <div class="section-header">
+    <div class="section-num">04 — Servicios</div>
+    <h2>¿En qué te <em>ayudo</em>?</h2>
+  </div>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-icon">⚙</div>
+      <div class="service-title">Sistemas de Gestión</div>
+      <div class="service-desc">Desarrollo de ERPs, sistemas de inventario, ventas, contabilidad y administración empresarial a medida. Arquitectura robusta y escalable.</div>
+      <div class="service-price">Desde <strong>$300 USD</strong></div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">◈</div>
+      <div class="service-title">Aplicaciones Web</div>
+      <div class="service-desc">Plataformas web completas con backend en Laravel/Python y frontend en React o Angular. APIs REST, autenticación y dashboards.</div>
+      <div class="service-price">Desde <strong>$200 USD</strong></div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">◎</div>
+      <div class="service-title">Bases de Datos & APIs</div>
+      <div class="service-desc">Diseño y optimización de bases de datos MySQL/PostgreSQL. Construcción de APIs REST para integración con otros sistemas o aplicaciones móviles.</div>
+      <div class="service-price">Desde <strong>$150 USD</strong></div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">✦</div>
+      <div class="service-title">Automatización</div>
+      <div class="service-desc">Scripts en Python para automatizar procesos repetitivos, reportes automáticos, scraping de datos e integración entre plataformas.</div>
+      <div class="service-price">Desde <strong>$100 USD</strong></div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">▣</div>
+      <div class="service-title">Bugs & Mantenimiento</div>
+      <div class="service-desc">Corrección de errores en proyectos existentes, optimización de código lento, actualización de dependencias y mejoras de seguridad.</div>
+      <div class="service-price">Desde <strong>$50 USD</strong></div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">◬</div>
+      <div class="service-title">Consultoría Técnica</div>
+      <div class="service-desc">Revisión de arquitectura de proyectos, recomendaciones tecnológicas, code review y definición de stack tecnológico para startups.</div>
+      <div class="service-price">Desde <strong>$30 USD/hr</strong></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section" id="contact">
+  <div class="section-header">
+    <div class="section-num">05 — Contacto</div>
+    <h2>¿Tienes un <em>proyecto</em>?</h2>
+  </div>
+  <div class="contact-inner">
+    <div class="contact-left">
+      <p class="contact-sub">Estoy disponible para proyectos freelance, colaboraciones y contratos a largo plazo. Respondó en menos de 24 horas.</p>
+      <div class="contact-options">
+        <a href="https://workana.com/freelancer/168cc71ee160c2f16af60af56af4aaf8" target="_blank" class="contact-option">
+          <div>
+            <div class="co-label">WORKANA</div>
+            <div class="co-val">Contrátame directamente</div>
+          </div>
+          <span class="co-arrow">↗</span>
+        </a>
+        <a href="https://github.com/Juanmaya25" target="_blank" class="contact-option">
+          <div>
+            <div class="co-label">GITHUB</div>
+            <div class="co-val">Ver código y proyectos</div>
+          </div>
+          <span class="co-arrow">↗</span>
+        </a>
+        <a href="https://fiverr.com" target="_blank" class="contact-option">
+          <div>
+            <div class="co-label">FIVERR</div>
+            <div class="co-val">Servicios específicos</div>
+          </div>
+          <span class="co-arrow">↗</span>
+        </a>
+      </div>
+    </div>
+    <div class="contact-right">
+      <div class="contact-form-title">Envíame un mensaje</div>
+      <div class="form-group">
+        <label>Tu nombre</label>
+        <input type="text" placeholder="Juan Pérez">
+      </div>
+      <div class="form-group">
+        <label>Correo electrónico</label>
+        <input type="email" placeholder="juan@empresa.com">
+      </div>
+      <div class="form-group">
+        <label>Tipo de proyecto</label>
+        <select>
+          <option>Sistema de inventario</option>
+          <option>Aplicación web</option>
+          <option>Base de datos / API</option>
+          <option>Automatización</option>
+          <option>Corrección de bugs</option>
+          <option>Otro</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Describe tu proyecto</label>
+        <textarea placeholder="Cuéntame qué necesitas..."></textarea>
+      </div>
+      <button class="form-submit" id="send-btn" onclick="sendMessage()">Enviar mensaje →</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-left">© 2025 Juan José Maya · Todos los derechos reservados.</div>
+  <div class="footer-logo">jm<span>.</span></div>
+  <div class="footer-links">
+    <a href="https://github.com/Juanmaya25" target="_blank">GitHub</a>
+    <a href="https://workana.com/freelancer/168cc71ee160c2f16af60af56af4aaf8" target="_blank">Workana</a>
+    <a href="#contact">Contacto</a>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>
+emailjs.init("USER_PUBLIC_KEY");
+
+function sendMessage() {
+  const name = document.querySelector('input[placeholder="Juan Pérez"]').value;
+  const email = document.querySelector('input[type="email"]').value;
+  const project = document.querySelector('select').value;
+  const message = document.querySelector('textarea').value;
+
+  if (!name || !email || !message) {
+    alert('Por favor completa todos los campos.');
+    return;
+  }
+
+  const btn = document.getElementById('send-btn');
+  btn.textContent = 'Enviando...';
+  btn.disabled = true;
+
+  // WhatsApp message
+  const waText = encodeURIComponent(
+    `Hola Juan José! Te escribo desde tu portafolio.
+
+` +
+    `*Nombre:* ${name}
+` +
+    `*Email:* ${email}
+` +
+    `*Proyecto:* ${project}
+` +
+    `*Mensaje:* ${message}`
+  );
+  const waURL = `https://wa.me/573014394180?text=${waText}`;
+
+  // EmailJS send
+  emailjs.send("service_portfolio", "template_portfolio", {
+    from_name: name,
+    from_email: email,
+    project_type: project,
+    message: message,
+    to_email: "juanjosemorales2510@gmail.com"
+  }).then(() => {
+    btn.textContent = 'Enviando...';
+  }).catch(() => {});
+
+  // Open WhatsApp
+  setTimeout(() => {
+    window.open(waURL, '_blank');
+    btn.textContent = 'Mensaje enviado →';
+    btn.style.background = '#00ff88';
+    setTimeout(() => {
+      btn.textContent = 'Enviar mensaje →';
+      btn.style.background = '';
+      btn.disabled = false;
+      document.querySelector('input[placeholder="Juan Pérez"]').value = '';
+      document.querySelector('input[type="email"]').value = '';
+      document.querySelector('textarea').value = '';
+    }, 3000);
+  }, 500);
+}
+
+const cursor = document.getElementById('cursor');
+document.addEventListener('mousemove', e => {
+  cursor.style.left = (e.clientX - 5) + 'px';
+  cursor.style.top = (e.clientY - 5) + 'px';
+});
+document.querySelectorAll('a,button,.project-item,.service-card').forEach(el => {
+  el.addEventListener('mouseenter', () => cursor.style.transform = 'scale(3)');
+  el.addEventListener('mouseleave', () => cursor.style.transform = 'scale(1)');
+});
+</script>
+<a href="https://wa.me/573014394180" target="_blank" style="position:fixed;bottom:32px;right:32px;width:56px;height:56px;background:#25d366;border-radius:50%;display:flex;align-items:center;justify-content:center;z-index:999;box-shadow:0 4px 20px rgba(37,211,102,.4);transition:transform .2s" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+<svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+</body>
+</html>
