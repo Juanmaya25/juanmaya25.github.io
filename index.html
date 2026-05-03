@@ -125,6 +125,8 @@ h2 em{font-style:normal;color:var(--accent)}
 .sdot.wip{background:#f7a24f;animation:pulse 1.5s infinite}
 .sdot.soon{background:#555}
 .stext{font-size:9px;color:var(--text3);letter-spacing:2px;text-transform:uppercase}
+.proj-code-link{margin-left:14px;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--text2);border-bottom:1px solid var(--border2);padding-bottom:1px;transition:all .2s}
+.proj-code-link:hover{color:var(--accent);border-color:var(--accent)}
 .proj-arrow{width:42px;height:42px;border:1px solid var(--border2);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:15px;color:var(--text3);transition:all .25s;flex-shrink:0}
 .project-item:hover .proj-arrow{border-color:var(--accent);color:var(--accent);transform:rotate(45deg)}
 .exp-list{display:flex;flex-direction:column;gap:1px;background:var(--border)}
@@ -371,7 +373,8 @@ footer{padding:32px 60px;display:flex;justify-content:space-between;align-items:
         <p class="feat-desc">Dashboard en tiempo real con KPIs, módulo de ventas automático, gestión de proveedores, reportes con gráficas y alertas de stock crítico.</p>
       </div>
       <div class="feat-links">
-        <a href="https://github.com/Juanmaya25/stockpro-inventory-system" target="_blank" class="feat-link primary">Ver código →</a>
+        <a href="https://juanmaya25.github.io/stockpro-inventory-system/" target="_blank" class="feat-link primary">Ver demo →</a>
+        <a href="https://github.com/Juanmaya25/stockpro-inventory-system" target="_blank" class="feat-link sec">Código</a>
         <a href="#contact" class="feat-link sec">Contratar</a>
       </div>
     </div>
@@ -387,29 +390,29 @@ footer{padding:32px 60px;display:flex;justify-content:space-between;align-items:
     </div>
   </div>
   <div class="projects-list">
-    <div class="project-item fade-in" onclick="window.open('https://github.com/Juanmaya25/stockpro-inventory-system','_blank')">
+    <div class="project-item fade-in" onclick="window.open('https://juanmaya25.github.io/stockpro-inventory-system/','_blank')">
       <div class="project-num">01</div>
-      <div><div class="proj-tags"><span class="ptag">Laravel</span><span class="ptag-sep">·</span><span class="ptag">React</span><span class="ptag-sep">·</span><span class="ptag">MySQL</span></div><div class="proj-title">StockPro — Sistema de Inventario</div><div class="proj-sub">Dashboard Full Stack con ventas, proveedores, analytics y alertas de stock en tiempo real.</div><div class="proj-status"><span class="sdot done"></span><span class="stext">Completado · Enero 2025</span></div></div>
+      <div><div class="proj-tags"><span class="ptag">React</span><span class="ptag-sep">·</span><span class="ptag">Vite</span><span class="ptag-sep">·</span><span class="ptag">Recharts</span></div><div class="proj-title">StockPro — Sistema de Inventario</div><div class="proj-sub">Dashboard Full Stack con ventas, proveedores, analytics y alertas de stock en tiempo real.</div><div class="proj-status"><span class="sdot done"></span><span class="stext">Completado · Mayo 2025</span><a href="https://github.com/Juanmaya25/stockpro-inventory-system" target="_blank" onclick="event.stopPropagation()" class="proj-code-link">Código →</a></div></div>
       <div class="proj-arrow">→</div>
     </div>
-    <div class="project-item fade-in">
+    <div class="project-item fade-in" onclick="window.open('https://juanmaya25.github.io/vetsystem-clinic/','_blank')">
       <div class="project-num">02</div>
-      <div><div class="proj-tags"><span class="ptag">Laravel</span><span class="ptag-sep">·</span><span class="ptag">Angular</span><span class="ptag-sep">·</span><span class="ptag">MySQL</span></div><div class="proj-title">VetSystem — Clínica Veterinaria</div><div class="proj-sub">Gestión de pacientes, citas, historiales médicos, facturación y recordatorios automáticos por WhatsApp.</div><div class="proj-status"><span class="sdot wip"></span><span class="stext">En desarrollo · 2025</span></div></div>
+      <div><div class="proj-tags"><span class="ptag">React</span><span class="ptag-sep">·</span><span class="ptag">Vite</span><span class="ptag-sep">·</span><span class="ptag">Recharts</span></div><div class="proj-title">VetSystem — Clínica Veterinaria</div><div class="proj-sub">Gestión de pacientes, citas, historiales médicos, farmacia y recordatorios automáticos por WhatsApp.</div><div class="proj-status"><span class="sdot done"></span><span class="stext">Completado · Mayo 2025</span><a href="https://github.com/Juanmaya25/vetsystem-clinic" target="_blank" onclick="event.stopPropagation()" class="proj-code-link">Código →</a></div></div>
       <div class="proj-arrow">→</div>
     </div>
-    <div class="project-item fade-in">
+    <div class="project-item fade-in" onclick="window.open('https://juanmaya25.github.io/agendapro-bookings/','_blank')">
       <div class="project-num">03</div>
-      <div><div class="proj-tags"><span class="ptag">Python</span><span class="ptag-sep">·</span><span class="ptag">React</span><span class="ptag-sep">·</span><span class="ptag">PostgreSQL</span></div><div class="proj-title">AgendaPro — Reservas Online</div><div class="proj-sub">Plataforma de agendamiento para consultorios y salones con notificaciones automáticas por WhatsApp.</div><div class="proj-status"><span class="sdot wip"></span><span class="stext">En desarrollo · 2025</span></div></div>
+      <div><div class="proj-tags"><span class="ptag">React</span><span class="ptag-sep">·</span><span class="ptag">Vite</span><span class="ptag-sep">·</span><span class="ptag">Recharts</span></div><div class="proj-title">AgendaPro — Reservas Online</div><div class="proj-sub">Plataforma de agendamiento para salones y consultorios con calendario mensual, CRM de clientes y wizard de reservas en 3 pasos.</div><div class="proj-status"><span class="sdot done"></span><span class="stext">Completado · Mayo 2025</span><a href="https://github.com/Juanmaya25/agendapro-bookings" target="_blank" onclick="event.stopPropagation()" class="proj-code-link">Código →</a></div></div>
       <div class="proj-arrow">→</div>
     </div>
-    <div class="project-item fade-in">
+    <div class="project-item fade-in" onclick="window.open('https://juanmaya25.github.io/contafacil-accounting/','_blank')">
       <div class="project-num">04</div>
-      <div><div class="proj-tags"><span class="ptag">PHP</span><span class="ptag-sep">·</span><span class="ptag">JavaScript</span><span class="ptag-sep">·</span><span class="ptag">MySQL</span></div><div class="proj-title">ContaFácil — Contabilidad PYME</div><div class="proj-sub">Sistema contable para pequeñas empresas: facturación, informes financieros y control de gastos.</div><div class="proj-status"><span class="sdot soon"></span><span class="stext">Próximamente · 2025</span></div></div>
+      <div><div class="proj-tags"><span class="ptag">React</span><span class="ptag-sep">·</span><span class="ptag">Vite</span><span class="ptag-sep">·</span><span class="ptag">Recharts</span></div><div class="proj-title">ContaFácil — Contabilidad PYME</div><div class="proj-sub">Sistema contable simple: transacciones, facturación, cuentas bancarias y reportes financieros con dashboard en vivo.</div><div class="proj-status"><span class="sdot done"></span><span class="stext">Completado · Mayo 2025</span><a href="https://github.com/Juanmaya25/contafacil-accounting" target="_blank" onclick="event.stopPropagation()" class="proj-code-link">Código →</a></div></div>
       <div class="proj-arrow">→</div>
     </div>
-    <div class="project-item fade-in">
+    <div class="project-item fade-in" onclick="window.open('https://juanmaya25.github.io/renttrack-rentals/','_blank')">
       <div class="project-num">05</div>
-      <div><div class="proj-tags"><span class="ptag">Laravel</span><span class="ptag-sep">·</span><span class="ptag">React</span><span class="ptag-sep">·</span><span class="ptag">MySQL</span></div><div class="proj-title">RentTrack — Arrendamientos</div><div class="proj-sub">Gestión de propiedades en arriendo: pagos, contratos, inquilinos y reportes mensuales automáticos.</div><div class="proj-status"><span class="sdot soon"></span><span class="stext">Próximamente · 2025</span></div></div>
+      <div><div class="proj-tags"><span class="ptag">React</span><span class="ptag-sep">·</span><span class="ptag">Vite</span></div><div class="proj-title">RentTrack — Arrendamientos</div><div class="proj-sub">Gestión integral de propiedades en arriendo: pagos, contratos, mantenimientos y reportes financieros del portafolio.</div><div class="proj-status"><span class="sdot done"></span><span class="stext">Completado · Mayo 2025</span><a href="https://github.com/Juanmaya25/renttrack-rentals" target="_blank" onclick="event.stopPropagation()" class="proj-code-link">Código →</a></div></div>
       <div class="proj-arrow">→</div>
     </div>
   </div>
