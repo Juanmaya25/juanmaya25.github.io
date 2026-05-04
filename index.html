@@ -46,9 +46,10 @@ nav.scrolled{padding:13px 60px}
 .hero-line{width:40px;height:1px;background:var(--text3);flex-shrink:0}
 .hero-eyebrow-text{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--text2)}
 h1{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(52px,9vw,120px);line-height:.92;letter-spacing:-3px;margin-bottom:40px}
-h1 .l1{display:block}
-h1 .l2{display:block;color:transparent;-webkit-text-stroke:1px var(--text3)}
-h1 .l3{display:block;color:var(--accent)}
+h1 .l1{display:block;background:linear-gradient(180deg,#ffffff 0%,#bbb 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
+h1 .l2{display:block;background:linear-gradient(90deg,rgba(255,255,255,.1),rgba(255,255,255,.55),var(--accent),rgba(255,255,255,.55),rgba(255,255,255,.1));background-size:300% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;-webkit-text-stroke:1.5px rgba(255,255,255,.18);animation:shimmer 6s ease-in-out infinite}
+h1 .l3{display:block;color:var(--accent);text-shadow:0 0 60px rgba(0,255,136,.35),0 0 120px rgba(0,255,136,.15)}
+@keyframes shimmer{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
 .hero-bottom{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;flex-wrap:wrap}
 .hero-desc{font-size:16px;color:var(--text2);max-width:400px;line-height:1.8}
 .hero-cta{display:flex;flex-direction:column;align-items:flex-end;gap:18px}
@@ -96,6 +97,79 @@ h2 em{font-style:normal;color:var(--accent)}
 .mock-bar{background:#00d4aa;border-radius:2px 2px 0 0;flex:1;opacity:.8}
 .mock-pie{background:#0d1117;border-radius:8px;height:80px;display:flex;align-items:center;justify-content:center}
 .pie-c{width:52px;height:52px;border-radius:50%;background:conic-gradient(#00d4aa 35%,#4f8ef7 35% 60%,#f7a24f 60% 80%,#f05566 80%)}
+
+/* ─── MOCKUP: VetSystem (top nav warm vet-care) ─── */
+.featured-preview.preview-vet{background:linear-gradient(135deg,#fef3c7,#d1fae5);padding:36px}
+.mock-vet{background:#fdfcf9;border-radius:14px;width:100%;max-width:640px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.15)}
+.mock-vet-nav{background:#fff;border-bottom:1px solid #ede9e3;padding:12px 18px;display:flex;align-items:center;gap:14px}
+.mock-vet-logo{width:30px;height:30px;border-radius:9px;background:linear-gradient(135deg,#059669,#34d399);display:flex;align-items:center;justify-content:center;color:#fff;font-size:15px}
+.mock-vet-tabs{display:flex;gap:3px;flex:1}
+.mock-vet-tab{padding:5px 12px;font-size:11px;color:#6b7280;border-radius:8px}
+.mock-vet-tab.active{background:#d1fae5;color:#059669;font-weight:700}
+.mock-vet-hero{margin:14px;padding:18px;background:linear-gradient(135deg,#d1fae5,#fef3c7);border-radius:16px;position:relative;overflow:hidden}
+.mock-vet-hero::after{content:'🐾';position:absolute;right:-8px;bottom:-15px;font-size:60px;opacity:.15}
+.mock-vet-hero-eyebrow{font-size:9px;color:#6b7280;font-weight:600;letter-spacing:.4px;text-transform:uppercase}
+.mock-vet-hero-title{font-size:18px;font-weight:800;color:#1f2937;margin-top:4px;letter-spacing:-.4px}
+.mock-vet-hero-title em{color:#059669;font-style:normal}
+.mock-vet-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;padding:0 14px 14px}
+.mock-vet-stat{background:#fef3c7;border-radius:10px;padding:10px}
+.mock-vet-stat:nth-child(2){background:#fef3c7}
+.mock-vet-stat:nth-child(3){background:rgba(251,113,133,.1)}
+.mock-vet-stat:nth-child(4){background:#f5f1ea}
+.mock-vet-stat-l{font-size:8px;color:#6b7280;text-transform:uppercase;letter-spacing:.4px;font-weight:600}
+.mock-vet-stat-v{font-size:18px;font-weight:800;letter-spacing:-.5px;margin-top:3px}
+
+/* ─── MOCKUP: AgendaPro (glassmorphism violeta-rosa) ─── */
+.featured-preview.preview-agenda{background:radial-gradient(circle at 30% 20%,rgba(192,132,252,.4),transparent 60%),radial-gradient(circle at 80% 80%,rgba(244,114,182,.35),transparent 60%),#0a0418;padding:36px}
+.mock-agenda{display:grid;grid-template-columns:64px 1fr;gap:0;background:rgba(20,8,40,.6);border-radius:18px;width:100%;max-width:640px;overflow:hidden;backdrop-filter:blur(20px);border:1px solid rgba(192,132,252,.2);box-shadow:0 30px 80px rgba(168,85,247,.3)}
+.mock-agenda-side{background:rgba(20,8,40,.4);padding:14px 0;display:flex;flex-direction:column;align-items:center;gap:8px;border-right:1px solid rgba(192,132,252,.1)}
+.mock-agenda-icon{width:36px;height:36px;border-radius:11px;display:flex;align-items:center;justify-content:center;color:#bfa8e6;font-size:14px}
+.mock-agenda-icon.active{background:linear-gradient(135deg,#c084fc,#f472b6);color:#fff;box-shadow:0 6px 16px rgba(168,85,247,.4)}
+.mock-agenda-main{padding:18px}
+.mock-agenda-hero{background:linear-gradient(135deg,#c084fc,#f472b6);border-radius:14px;padding:14px 16px;color:#fff;position:relative;overflow:hidden}
+.mock-agenda-hero::after{content:'✨';position:absolute;right:14px;top:14px;font-size:24px;opacity:.4}
+.mock-agenda-hero-eyebrow{font-size:9px;font-weight:600;opacity:.85;letter-spacing:.4px;text-transform:uppercase}
+.mock-agenda-hero-title{font-size:18px;font-weight:800;letter-spacing:-.4px;margin-top:4px}
+.mock-agenda-cards{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
+.mock-agenda-card{background:rgba(255,255,255,.05);backdrop-filter:blur(12px);border:1px solid rgba(192,132,252,.15);border-radius:12px;padding:10px}
+.mock-agenda-card-l{font-size:8px;color:#bfa8e6;text-transform:uppercase;letter-spacing:.4px;font-weight:600}
+.mock-agenda-card-v{font-size:18px;font-weight:800;font-family:monospace;letter-spacing:-.5px;margin-top:2px}
+
+/* ─── MOCKUP: ContaFácil (corporativo navy + tabs) ─── */
+.featured-preview.preview-conta{background:linear-gradient(135deg,#f1f5f9,#e2e8f0);padding:36px}
+.mock-conta{background:#fff;border-radius:10px;width:100%;max-width:640px;overflow:hidden;box-shadow:0 20px 60px rgba(15,23,42,.15);border:1px solid #e2e8f0}
+.mock-conta-header{background:#0f172a;color:#f1f5f9;padding:12px 18px;display:flex;align-items:center;gap:10px}
+.mock-conta-logo{width:26px;height:26px;border-radius:6px;background:linear-gradient(135deg,#1d4ed8,#0891b2);display:flex;align-items:center;justify-content:center;font-size:12px}
+.mock-conta-title{font-weight:700;font-size:13px;letter-spacing:-.2px}
+.mock-conta-balance{margin-left:auto;background:rgba(255,255,255,.1);padding:4px 10px;border-radius:5px;font-size:11px;font-weight:600}
+.mock-conta-balance span{color:#34d399;font-family:monospace;margin-left:6px}
+.mock-conta-tabs{background:#fff;border-bottom:1px solid #e2e8f0;padding:0 18px;display:flex;gap:4px}
+.mock-conta-tab{padding:11px 14px;font-size:10px;color:#475569;font-weight:500;border-bottom:2px solid transparent;margin-bottom:-1px;letter-spacing:.2px}
+.mock-conta-tab.active{color:#1d4ed8;border-bottom-color:#1d4ed8;font-weight:700}
+.mock-conta-kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;padding:14px 16px}
+.mock-conta-kpi{background:#fff;border:1px solid #e2e8f0;border-radius:6px;border-left:3px solid;padding:10px 12px}
+.mock-conta-kpi-l{font-size:8px;color:#475569;font-weight:500;letter-spacing:.2px}
+.mock-conta-kpi-v{font-size:14px;font-weight:700;font-family:monospace;letter-spacing:-.3px;margin-top:4px}
+
+/* ─── MOCKUP: RentTrack (Airbnb listing) ─── */
+.featured-preview.preview-rent{background:linear-gradient(135deg,#f5f5f4,#e7e5e4);padding:36px}
+.mock-rent{background:#fff;border-radius:18px;width:100%;max-width:640px;overflow:hidden;box-shadow:0 20px 60px rgba(28,25,23,.15)}
+.mock-rent-bar{padding:14px 18px;border-bottom:1px solid #e7e5e4;display:flex;align-items:center;gap:10px;background:#fff}
+.mock-rent-logo{width:28px;height:28px;border-radius:9px;background:linear-gradient(135deg,#0d9488,#0891b2);color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px}
+.mock-rent-title{font-weight:800;font-size:14px;font-family:Georgia,serif;letter-spacing:-.3px}
+.mock-rent-pills{display:flex;gap:4px;margin-left:auto}
+.mock-rent-pill{padding:5px 12px;font-size:10px;color:#57534e;border-radius:20px;font-weight:500}
+.mock-rent-pill.active{background:#1c1917;color:#fff;font-weight:700}
+.mock-rent-card{margin:14px;border-radius:14px;overflow:hidden;box-shadow:0 4px 14px rgba(28,25,23,.06)}
+.mock-rent-img{height:130px;background:linear-gradient(135deg,#06b6d4,#3b82f6);display:flex;align-items:center;justify-content:center;font-size:50px;opacity:.45;position:relative}
+.mock-rent-badge{position:absolute;top:10px;left:10px;background:rgba(255,255,255,.95);padding:3px 9px;border-radius:20px;font-size:9px;font-weight:700;color:#059669;display:flex;align-items:center;gap:5px}
+.mock-rent-badge::before{content:'';width:5px;height:5px;border-radius:50%;background:#10b981}
+.mock-rent-info{padding:14px 16px}
+.mock-rent-prop{font-size:13px;font-weight:700;letter-spacing:-.2px}
+.mock-rent-addr{font-size:11px;color:#57534e;margin-top:3px}
+.mock-rent-row{display:flex;gap:12px;margin-top:10px;font-size:10px;color:#57534e}
+.mock-rent-price{margin-top:10px;padding-top:10px;border-top:1px solid #e7e5e4;font-size:18px;font-weight:700;font-family:Georgia,serif;letter-spacing:-.3px}
+.mock-rent-price span{font-size:11px;font-weight:400;color:#57534e;font-family:inherit;margin-left:3px}
 .featured-info{padding:32px 40px;display:grid;grid-template-columns:1fr auto;gap:28px;align-items:center}
 .feat-tags{display:flex;gap:7px;margin-bottom:10px;flex-wrap:wrap}
 .feat-tag{background:var(--bg);border:1px solid var(--border2);border-radius:4px;padding:3px 10px;font-size:10px;color:var(--text2)}
@@ -273,7 +347,7 @@ footer{padding:32px 60px;display:flex;justify-content:space-between;align-items:
   <div class="hero-content">
     <div class="hero-eyebrow">
       <div class="hero-line"></div>
-      <span class="hero-eyebrow-text">Full Stack Developer · Colombia · 2025</span>
+      <span class="hero-eyebrow-text">Full Stack Developer · Colombia · Programando desde 2023</span>
     </div>
     <h1>
       <span class="l1">Juan</span>
@@ -288,9 +362,9 @@ footer{padding:32px 60px;display:flex;justify-content:space-between;align-items:
       </div>
     </div>
     <div class="hero-stats">
-      <div><div class="stat-num" data-target="2" data-suffix=".5">0</div><div class="stat-label">Años de experiencia</div></div>
-      <div><div class="stat-num" data-target="8" data-suffix="+">0</div><div class="stat-label">Tecnologías</div></div>
-      <div><div class="stat-num" data-target="6" data-suffix="+">0</div><div class="stat-label">Proyectos entregados</div></div>
+      <div><div class="stat-num" data-target="3" data-suffix="+">0</div><div class="stat-label">Años de experiencia · desde 2023</div></div>
+      <div><div class="stat-num" data-target="10" data-suffix="+">0</div><div class="stat-label">Tecnologías</div></div>
+      <div><div class="stat-num" data-target="5" data-suffix="">0</div><div class="stat-label">Proyectos en vivo</div></div>
     </div>
   </div>
 </section>
@@ -302,7 +376,7 @@ footer{padding:32px 60px;display:flex;justify-content:space-between;align-items:
   </div>
   <div class="about-grid">
     <div class="fade-in">
-      <p class="about-text">Soy <span class="about-hl">Juan José Maya</span>, desarrollador Full Stack con 2.5 años construyendo soluciones web para empresas colombianas y latinoamericanas.</p>
+      <p class="about-text">Soy <span class="about-hl">Juan José Maya</span>, desarrollador Full Stack programando <span class="about-hl">desde 2023</span> y construyendo soluciones web para empresas colombianas y latinoamericanas.</p>
       <p class="about-text">Me especializo en <span class="about-hl">sistemas de gestión empresarial</span> — inventarios, ventas, contabilidad y CRM. Entrego proyectos completos y funcionales, no prototipos.</p>
       <p class="about-text">Stack principal: <span class="about-hl">Laravel, React, Python y MySQL</span>, complementado con Angular, Rust, C++ y Java según el proyecto.</p>
       <div class="skills-title">Stack tecnológico</div>
@@ -317,7 +391,7 @@ footer{padding:32px 60px;display:flex;justify-content:space-between;align-items:
     <div class="fade-in">
       <div class="about-info">
         <div class="info-row"><span class="info-lbl">Ubicación</span><span class="info-val">San Pedro, Antioquia 🇨🇴</span></div>
-        <div class="info-row"><span class="info-lbl">Experiencia</span><span class="info-val">2.5 años (desde 2023)</span></div>
+        <div class="info-row"><span class="info-lbl">Experiencia</span><span class="info-val">3+ años (desde Enero 2023)</span></div>
         <div class="info-row"><span class="info-lbl">Especialidad</span><span class="info-val">ERP & Web Apps</span></div>
         <div class="info-row"><span class="info-lbl">Disponibilidad</span><span class="info-val green">● Disponible ahora</span></div>
         <div class="info-row"><span class="info-lbl">Idiomas</span><span class="info-val">Español · English basic</span></div>
@@ -331,89 +405,242 @@ footer{padding:32px 60px;display:flex;justify-content:space-between;align-items:
   </div>
 </section>
 
-<div class="featured fade-in">
-  <div style="padding:0 60px;margin-bottom:26px">
-    <div class="section-num">Proyecto destacado</div>
-    <h2>StockPro <em>— Inventario</em></h2>
-  </div>
-  <div style="padding:0 60px 80px">
-  <div class="featured-inner">
-    <div class="featured-preview">
-      <div class="mock-app">
-        <div class="mock-topbar">
-          <div class="mock-dot" style="background:#f05566"></div>
-          <div class="mock-dot" style="background:#f7a24f"></div>
-          <div class="mock-dot" style="background:#00d4aa"></div>
-          <div class="mock-title-bar"></div>
-          <div style="width:48px;height:18px;background:#00d4aa1a;border-radius:3px;border:1px solid #00d4aa33"></div>
-        </div>
-        <div class="mock-body">
-          <div class="mock-kpi" style="border-color:#00d4aa"><div class="mock-kpi-v" style="color:#00d4aa">1,248</div><div class="mock-kpi-l">Productos</div></div>
-          <div class="mock-kpi" style="border-color:#4f8ef7"><div class="mock-kpi-v" style="color:#4f8ef7">$84k</div><div class="mock-kpi-l">Inventario</div></div>
-          <div class="mock-kpi" style="border-color:#f7a24f"><div class="mock-kpi-v" style="color:#f7a24f">$23k</div><div class="mock-kpi-l">Ventas</div></div>
-          <div class="mock-kpi" style="border-color:#f05566"><div class="mock-kpi-v" style="color:#f05566">14</div><div class="mock-kpi-l">Alertas</div></div>
-        </div>
-        <div class="mock-chart-row">
-          <div class="mock-chart" id="mockChart">
-            <div class="mock-bar" style="height:60%"></div>
-            <div class="mock-bar" style="height:85%"></div>
-            <div class="mock-bar" style="height:45%"></div>
-            <div class="mock-bar" style="height:75%"></div>
-            <div class="mock-bar" style="height:55%"></div>
-            <div class="mock-bar" style="height:100%"></div>
-          </div>
-          <div class="mock-pie"><div class="pie-c"></div></div>
-        </div>
-      </div>
-    </div>
-    <div class="featured-info">
-      <div>
-        <div class="feat-tags"><span class="feat-tag">React</span><span class="feat-tag">Laravel</span><span class="feat-tag">MySQL</span><span class="feat-tag">Python</span><span class="feat-tag">API</span></div>
-        <div class="feat-title">Sistema completo de gestión de inventario y ventas</div>
-        <p class="feat-desc">Dashboard en tiempo real con KPIs, módulo de ventas automático, gestión de proveedores, reportes con gráficas y alertas de stock crítico.</p>
-      </div>
-      <div class="feat-links">
-        <a href="https://juanmaya25.github.io/stockpro-inventory-system/" target="_blank" class="feat-link primary">Ver demo →</a>
-        <a href="https://github.com/Juanmaya25/stockpro-inventory-system" target="_blank" class="feat-link sec">Código</a>
-        <a href="#contact" class="feat-link sec">Contratar</a>
-      </div>
-    </div>
-  </div>
-  </div>
-</div>
-
-<section class="section" id="projects">
-  <div class="section-header">
+<section id="projects">
+  <div style="padding:80px 60px 26px">
     <div class="proj-header-row fade-in">
-      <div><div class="section-num">02 — Proyectos</div><h2>Lo que he <em>construido</em></h2></div>
+      <div><div class="section-num">02 — Proyectos en vivo</div><h2>5 sistemas <em>desplegados</em></h2></div>
       <a href="https://github.com/Juanmaya25" target="_blank" class="view-all">Ver GitHub →</a>
     </div>
   </div>
-  <div class="projects-list">
-    <div class="project-item fade-in" onclick="window.open('https://juanmaya25.github.io/stockpro-inventory-system/','_blank')">
-      <div class="project-num">01</div>
-      <div><div class="proj-tags"><span class="ptag">React</span><span class="ptag-sep">·</span><span class="ptag">Vite</span><span class="ptag-sep">·</span><span class="ptag">Recharts</span></div><div class="proj-title">StockPro — Sistema de Inventario</div><div class="proj-sub">Dashboard Full Stack con ventas, proveedores, analytics y alertas de stock en tiempo real.</div><div class="proj-status"><span class="sdot done"></span><span class="stext">Completado · Mayo 2025</span><a href="https://github.com/Juanmaya25/stockpro-inventory-system" target="_blank" onclick="event.stopPropagation()" class="proj-code-link">Código →</a></div></div>
-      <div class="proj-arrow">→</div>
+
+  <!-- 01 · STOCKPRO -->
+  <div class="featured fade-in">
+    <div style="padding:0 60px 26px"><div class="section-num">01 — StockPro</div><h2>Stock<em>Pro</em> · Inventario</h2></div>
+    <div style="padding:0 60px 60px">
+      <div class="featured-inner">
+        <div class="featured-preview">
+          <div class="mock-app">
+            <div class="mock-topbar">
+              <div class="mock-dot" style="background:#f05566"></div>
+              <div class="mock-dot" style="background:#f7a24f"></div>
+              <div class="mock-dot" style="background:#00d4aa"></div>
+              <div class="mock-title-bar"></div>
+              <div style="width:48px;height:18px;background:#00d4aa1a;border-radius:3px;border:1px solid #00d4aa33"></div>
+            </div>
+            <div class="mock-body">
+              <div class="mock-kpi" style="border-color:#00d4aa"><div class="mock-kpi-v" style="color:#00d4aa">1,248</div><div class="mock-kpi-l">Productos</div></div>
+              <div class="mock-kpi" style="border-color:#4f8ef7"><div class="mock-kpi-v" style="color:#4f8ef7">$84k</div><div class="mock-kpi-l">Inventario</div></div>
+              <div class="mock-kpi" style="border-color:#f7a24f"><div class="mock-kpi-v" style="color:#f7a24f">$23k</div><div class="mock-kpi-l">Ventas</div></div>
+              <div class="mock-kpi" style="border-color:#f05566"><div class="mock-kpi-v" style="color:#f05566">14</div><div class="mock-kpi-l">Alertas</div></div>
+            </div>
+            <div class="mock-chart-row">
+              <div class="mock-chart">
+                <div class="mock-bar" style="height:60%"></div>
+                <div class="mock-bar" style="height:85%"></div>
+                <div class="mock-bar" style="height:45%"></div>
+                <div class="mock-bar" style="height:75%"></div>
+                <div class="mock-bar" style="height:55%"></div>
+                <div class="mock-bar" style="height:100%"></div>
+              </div>
+              <div class="mock-pie"><div class="pie-c"></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="featured-info">
+          <div>
+            <div class="feat-tags"><span class="feat-tag">React</span><span class="feat-tag">Vite</span><span class="feat-tag">Recharts</span><span class="feat-tag">SaaS B2B</span></div>
+            <div class="feat-title">Sistema completo de inventario y punto de venta</div>
+            <p class="feat-desc">Dashboard tipo SaaS con KPIs, módulo de ventas que descuenta stock automáticamente, gestión de proveedores con rating, reportes con gráficas y alertas de stock crítico.</p>
+          </div>
+          <div class="feat-links">
+            <a href="https://juanmaya25.github.io/stockpro-inventory-system/" target="_blank" class="feat-link primary">Ver demo →</a>
+            <a href="https://github.com/Juanmaya25/stockpro-inventory-system" target="_blank" class="feat-link sec">Código</a>
+            <a href="#contact" class="feat-link sec">Contratar</a>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="project-item fade-in" onclick="window.open('https://juanmaya25.github.io/vetsystem-clinic/','_blank')">
-      <div class="project-num">02</div>
-      <div><div class="proj-tags"><span class="ptag">React</span><span class="ptag-sep">·</span><span class="ptag">Vite</span><span class="ptag-sep">·</span><span class="ptag">Recharts</span></div><div class="proj-title">VetSystem — Clínica Veterinaria</div><div class="proj-sub">Gestión de pacientes, citas, historiales médicos, farmacia y recordatorios automáticos por WhatsApp.</div><div class="proj-status"><span class="sdot done"></span><span class="stext">Completado · Mayo 2025</span><a href="https://github.com/Juanmaya25/vetsystem-clinic" target="_blank" onclick="event.stopPropagation()" class="proj-code-link">Código →</a></div></div>
-      <div class="proj-arrow">→</div>
+  </div>
+
+  <!-- 02 · VETSYSTEM -->
+  <div class="featured fade-in">
+    <div style="padding:0 60px 26px"><div class="section-num">02 — VetSystem</div><h2>Vet<em>Care</em> · Veterinaria</h2></div>
+    <div style="padding:0 60px 60px">
+      <div class="featured-inner">
+        <div class="featured-preview preview-vet">
+          <div class="mock-vet">
+            <div class="mock-vet-nav">
+              <div class="mock-vet-logo">🐾</div>
+              <div class="mock-vet-tabs">
+                <div class="mock-vet-tab">Inicio</div>
+                <div class="mock-vet-tab active">Pacientes</div>
+                <div class="mock-vet-tab">Agenda</div>
+                <div class="mock-vet-tab">Farmacia</div>
+              </div>
+            </div>
+            <div class="mock-vet-hero">
+              <div class="mock-vet-hero-eyebrow">Jueves 1 Mayo · Clínica VetCare</div>
+              <div class="mock-vet-hero-title">Buenos días, <em>Dr. Maya</em> 👋</div>
+            </div>
+            <div class="mock-vet-stats">
+              <div class="mock-vet-stat"><div class="mock-vet-stat-l">Hoy</div><div class="mock-vet-stat-v" style="color:#059669">6</div></div>
+              <div class="mock-vet-stat"><div class="mock-vet-stat-l">Tratam.</div><div class="mock-vet-stat-v" style="color:#f59e0b">1</div></div>
+              <div class="mock-vet-stat"><div class="mock-vet-stat-l">Críticos</div><div class="mock-vet-stat-v" style="color:#fb7185">1</div></div>
+              <div class="mock-vet-stat"><div class="mock-vet-stat-l">Total</div><div class="mock-vet-stat-v">24</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="featured-info">
+          <div>
+            <div class="feat-tags"><span class="feat-tag">React</span><span class="feat-tag">Vite</span><span class="feat-tag">Recharts</span><span class="feat-tag">Vet-care UX</span></div>
+            <div class="feat-title">Gestión integral para clínicas veterinarias</div>
+            <p class="feat-desc">Pacientes con avatar gradient por especie, agenda diaria, farmacia con alertas de stock, recordatorios por WhatsApp e historial médico. Diseño cálido con paleta verde menta + coral.</p>
+          </div>
+          <div class="feat-links">
+            <a href="https://juanmaya25.github.io/vetsystem-clinic/" target="_blank" class="feat-link primary">Ver demo →</a>
+            <a href="https://github.com/Juanmaya25/vetsystem-clinic" target="_blank" class="feat-link sec">Código</a>
+            <a href="#contact" class="feat-link sec">Contratar</a>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="project-item fade-in" onclick="window.open('https://juanmaya25.github.io/agendapro-bookings/','_blank')">
-      <div class="project-num">03</div>
-      <div><div class="proj-tags"><span class="ptag">React</span><span class="ptag-sep">·</span><span class="ptag">Vite</span><span class="ptag-sep">·</span><span class="ptag">Recharts</span></div><div class="proj-title">AgendaPro — Reservas Online</div><div class="proj-sub">Plataforma de agendamiento para salones y consultorios con calendario mensual, CRM de clientes y wizard de reservas en 3 pasos.</div><div class="proj-status"><span class="sdot done"></span><span class="stext">Completado · Mayo 2025</span><a href="https://github.com/Juanmaya25/agendapro-bookings" target="_blank" onclick="event.stopPropagation()" class="proj-code-link">Código →</a></div></div>
-      <div class="proj-arrow">→</div>
+  </div>
+
+  <!-- 03 · AGENDAPRO -->
+  <div class="featured fade-in">
+    <div style="padding:0 60px 26px"><div class="section-num">03 — AgendaPro</div><h2>Agenda<em>Pro</em> · Reservas</h2></div>
+    <div style="padding:0 60px 60px">
+      <div class="featured-inner">
+        <div class="featured-preview preview-agenda">
+          <div class="mock-agenda">
+            <div class="mock-agenda-side">
+              <div class="mock-agenda-icon" style="background:linear-gradient(135deg,#c084fc,#f472b6);color:#fff;width:32px;height:32px;border-radius:9px;font-size:13px;font-weight:800;margin-bottom:6px">A</div>
+              <div class="mock-agenda-icon active">◉</div>
+              <div class="mock-agenda-icon">◈</div>
+              <div class="mock-agenda-icon">◎</div>
+              <div class="mock-agenda-icon">✦</div>
+              <div class="mock-agenda-icon">◬</div>
+            </div>
+            <div class="mock-agenda-main">
+              <div class="mock-agenda-hero">
+                <div class="mock-agenda-hero-eyebrow">Salón Bella · Mayo</div>
+                <div class="mock-agenda-hero-title">Hola, hermosa</div>
+              </div>
+              <div class="mock-agenda-cards">
+                <div class="mock-agenda-card"><div class="mock-agenda-card-l">Citas hoy</div><div class="mock-agenda-card-v" style="color:#c084fc">12</div></div>
+                <div class="mock-agenda-card"><div class="mock-agenda-card-l">Ingresos</div><div class="mock-agenda-card-v" style="color:#34d399">$640k</div></div>
+                <div class="mock-agenda-card"><div class="mock-agenda-card-l">Clientes</div><div class="mock-agenda-card-v" style="color:#f472b6">186</div></div>
+                <div class="mock-agenda-card"><div class="mock-agenda-card-l">Rating</div><div class="mock-agenda-card-v" style="color:#fbbf24">4.9★</div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="featured-info">
+          <div>
+            <div class="feat-tags"><span class="feat-tag">React</span><span class="feat-tag">Vite</span><span class="feat-tag">Recharts</span><span class="feat-tag">Glassmorphism</span></div>
+            <div class="feat-title">Plataforma de reservas para salones y spas</div>
+            <p class="feat-desc">Wizard de reservas en 3 pasos, calendario mensual, CRM con sistema de fidelidad (Plata/Oro/Platino), gestión de equipo con rating y reportes. Estética glassmorphism con gradientes neón.</p>
+          </div>
+          <div class="feat-links">
+            <a href="https://juanmaya25.github.io/agendapro-bookings/" target="_blank" class="feat-link primary">Ver demo →</a>
+            <a href="https://github.com/Juanmaya25/agendapro-bookings" target="_blank" class="feat-link sec">Código</a>
+            <a href="#contact" class="feat-link sec">Contratar</a>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="project-item fade-in" onclick="window.open('https://juanmaya25.github.io/contafacil-accounting/','_blank')">
-      <div class="project-num">04</div>
-      <div><div class="proj-tags"><span class="ptag">React</span><span class="ptag-sep">·</span><span class="ptag">Vite</span><span class="ptag-sep">·</span><span class="ptag">Recharts</span></div><div class="proj-title">ContaFácil — Contabilidad PYME</div><div class="proj-sub">Sistema contable simple: transacciones, facturación, cuentas bancarias y reportes financieros con dashboard en vivo.</div><div class="proj-status"><span class="sdot done"></span><span class="stext">Completado · Mayo 2025</span><a href="https://github.com/Juanmaya25/contafacil-accounting" target="_blank" onclick="event.stopPropagation()" class="proj-code-link">Código →</a></div></div>
-      <div class="proj-arrow">→</div>
+  </div>
+
+  <!-- 04 · CONTAFÁCIL -->
+  <div class="featured fade-in">
+    <div style="padding:0 60px 26px"><div class="section-num">04 — ContaFácil</div><h2>Conta<em>Fácil</em> · Contabilidad</h2></div>
+    <div style="padding:0 60px 60px">
+      <div class="featured-inner">
+        <div class="featured-preview preview-conta">
+          <div class="mock-conta">
+            <div class="mock-conta-header">
+              <div class="mock-conta-logo">▣</div>
+              <div class="mock-conta-title">ContaFácil</div>
+              <div class="mock-conta-balance">Balance<span>$8.4M</span></div>
+            </div>
+            <div class="mock-conta-tabs">
+              <div class="mock-conta-tab active">Resumen</div>
+              <div class="mock-conta-tab">Transacciones</div>
+              <div class="mock-conta-tab">Facturas</div>
+              <div class="mock-conta-tab">Cuentas</div>
+              <div class="mock-conta-tab">Reportes</div>
+            </div>
+            <div class="mock-conta-kpis">
+              <div class="mock-conta-kpi" style="border-left-color:#059669"><div class="mock-conta-kpi-l">Balance</div><div class="mock-conta-kpi-v" style="color:#059669">$8.4M</div></div>
+              <div class="mock-conta-kpi" style="border-left-color:#059669"><div class="mock-conta-kpi-l">Ingresos</div><div class="mock-conta-kpi-v" style="color:#059669">$24M</div></div>
+              <div class="mock-conta-kpi" style="border-left-color:#dc2626"><div class="mock-conta-kpi-l">Egresos</div><div class="mock-conta-kpi-v" style="color:#dc2626">$15M</div></div>
+              <div class="mock-conta-kpi" style="border-left-color:#1d4ed8"><div class="mock-conta-kpi-l">Activos</div><div class="mock-conta-kpi-v" style="color:#1d4ed8">$34M</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="featured-info">
+          <div>
+            <div class="feat-tags"><span class="feat-tag">React</span><span class="feat-tag">Vite</span><span class="feat-tag">Recharts</span><span class="feat-tag">Enterprise</span></div>
+            <div class="feat-title">Sistema contable simple para PYMEs</div>
+            <p class="feat-desc">Transacciones por categoría y cuenta, facturación con marcado de pagadas/vencidas, balance en tiempo real, reportes con margen y liquidez. Diseño formal navy + tabs estilo banca.</p>
+          </div>
+          <div class="feat-links">
+            <a href="https://juanmaya25.github.io/contafacil-accounting/" target="_blank" class="feat-link primary">Ver demo →</a>
+            <a href="https://github.com/Juanmaya25/contafacil-accounting" target="_blank" class="feat-link sec">Código</a>
+            <a href="#contact" class="feat-link sec">Contratar</a>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="project-item fade-in" onclick="window.open('https://juanmaya25.github.io/renttrack-rentals/','_blank')">
-      <div class="project-num">05</div>
-      <div><div class="proj-tags"><span class="ptag">React</span><span class="ptag-sep">·</span><span class="ptag">Vite</span></div><div class="proj-title">RentTrack — Arrendamientos</div><div class="proj-sub">Gestión integral de propiedades en arriendo: pagos, contratos, mantenimientos y reportes financieros del portafolio.</div><div class="proj-status"><span class="sdot done"></span><span class="stext">Completado · Mayo 2025</span><a href="https://github.com/Juanmaya25/renttrack-rentals" target="_blank" onclick="event.stopPropagation()" class="proj-code-link">Código →</a></div></div>
-      <div class="proj-arrow">→</div>
+  </div>
+
+  <!-- 05 · RENTTRACK -->
+  <div class="featured fade-in">
+    <div style="padding:0 60px 26px"><div class="section-num">05 — RentTrack</div><h2>Rent<em>Track</em> · Arrendamientos</h2></div>
+    <div style="padding:0 60px 100px">
+      <div class="featured-inner">
+        <div class="featured-preview preview-rent">
+          <div class="mock-rent">
+            <div class="mock-rent-bar">
+              <div class="mock-rent-logo">🏠</div>
+              <div class="mock-rent-title">RentTrack</div>
+              <div class="mock-rent-pills">
+                <div class="mock-rent-pill">Inicio</div>
+                <div class="mock-rent-pill active">Propiedades</div>
+                <div class="mock-rent-pill">Pagos</div>
+              </div>
+            </div>
+            <div class="mock-rent-card">
+              <div class="mock-rent-img">
+                🏢
+                <div class="mock-rent-badge">Arrendado</div>
+              </div>
+              <div class="mock-rent-info">
+                <div class="mock-rent-prop">Apto 301 · Ed. Mirador</div>
+                <div class="mock-rent-addr">📍 Calle 50 #30-20, Medellín</div>
+                <div class="mock-rent-row">
+                  <span>📐 65m²</span>
+                  <span>🛏 2 hab</span>
+                  <span>🛁 2 baños</span>
+                </div>
+                <div class="mock-rent-price">$1.800.000<span>/mes</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="featured-info">
+          <div>
+            <div class="feat-tags"><span class="feat-tag">React</span><span class="feat-tag">Vite</span><span class="feat-tag">Real Estate</span><span class="feat-tag">Sin librerías</span></div>
+            <div class="feat-title">Gestión integral de propiedades en arriendo</div>
+            <p class="feat-desc">Listings estilo Airbnb por tipo de propiedad, control de pagos por estado (cobrado/pendiente/mora), sistema de mantenimiento por prioridad y reportes con tasa de ocupación. Bundle ultra-liviano (56KB gzip).</p>
+          </div>
+          <div class="feat-links">
+            <a href="https://juanmaya25.github.io/renttrack-rentals/" target="_blank" class="feat-link primary">Ver demo →</a>
+            <a href="https://github.com/Juanmaya25/renttrack-rentals" target="_blank" class="feat-link sec">Código</a>
+            <a href="#contact" class="feat-link sec">Contratar</a>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -422,7 +649,7 @@ footer{padding:32px 60px;display:flex;justify-content:space-between;align-items:
   <div class="section-header fade-in"><div class="section-num">03 — Experiencia</div><h2>Cómo llegué <em>aquí</em></h2></div>
   <div class="exp-list">
     <div class="exp-item fade-in">
-      <div class="exp-date">Enero 2023 — Presente<br><span style="color:#555;font-size:11px">2 años en curso</span></div>
+      <div class="exp-date">Enero 2023 — Presente<br><span style="color:#555;font-size:11px">3+ años activos</span></div>
       <div><div class="exp-role">Desarrollador Full Stack Freelance</div><div class="exp-co">Independiente · Remoto</div><div class="exp-desc">Desarrollo de sistemas de gestión de inventario y aplicaciones web empresariales para clientes en Colombia. Diseño de arquitecturas Full Stack, bases de datos relacionales e interfaces modernas. Proyectos de escritorio y web enfocados en automatización de procesos de negocio.</div><div class="exp-techs"><span class="exp-tech">Laravel</span><span class="exp-tech">React</span><span class="exp-tech">Python</span><span class="exp-tech">MySQL</span><span class="exp-tech">Angular</span></div></div>
     </div>
     <div class="exp-item fade-in">
@@ -467,7 +694,7 @@ footer{padding:32px 60px;display:flex;justify-content:space-between;align-items:
 </section>
 
 <footer>
-  <div class="footer-copy">© 2025 Juan José Maya · Todos los derechos reservados.</div>
+  <div class="footer-copy">© 2026 Juan José Maya · Todos los derechos reservados.</div>
   <div class="footer-logo">jm<span>.</span></div>
   <div class="footer-links">
     <a href="https://github.com/Juanmaya25" target="_blank">GitHub</a>
